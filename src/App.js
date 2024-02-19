@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { cities } from './cz-cities.js';
+import { City } from './components/City/City.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => (
+  <div className="container">
+    <div className="cities">
+      {cities.map((city) => (
+        <City
+          key={city.name}
+          photo={city.photo}
+          name={city.name}
+          population={city.population}
+          area={city.area}
+          district={city.district}
+        />
+      ))}
     </div>
-  );
-}
+  </div>
+);
 
 export default App;
